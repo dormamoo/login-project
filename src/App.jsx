@@ -10,11 +10,7 @@ function App() {
     <div className="web-container">
       {/* 1. 웹사이트 헤더 (상단 메뉴바) */}
       <header className="web-header">
-<<<<<<< HEAD
         <div className="logo">My Local Website</div>
-=======
-        <div className="logo">Git Ver Website</div>
->>>>>>> 28fe71991a2ffe57b6601aa02e01441de3f06c0e
         <nav className="nav-menu">
           <span>홈</span>
           <span>소개</span>
