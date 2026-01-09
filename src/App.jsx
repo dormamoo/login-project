@@ -34,7 +34,7 @@ function App() {
 
       {/* 3. 웹사이트 푸터 (하단 정보) */}
       <footer className="web-footer">
-        <p>Copyright © 2024 My Website. All rights reserved.</p>
+        <p>Copyright © 2025 My Website. All rights reserved.</p>
       </footer>
     </div>
   );
