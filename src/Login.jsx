@@ -15,39 +15,34 @@ function Login({ onLoginSuccess }) {
   };
 
   return (
-    // style 대신 className을 사용합니다.
-    <div className="login-container">
+    /* 중요: 기존의 <div className="login-container"> 를 삭제하고
+       바로 <div className="login-box"> 부터 시작하게 합니다. */
+    <div className="login-box">
+      <h1 className="login-title">로그인</h1>
       
-      <div className="login-box">
-        <h1 className="login-title">로그인</h1>
-        
-        <div className="input-group">
-          <input 
-            type="text" 
-            className="input-field"
-            value={inputId} 
-            placeholder="아이디 (admin)"
-            onChange={(e) => setInputId(e.target.value)}
-          />
-        </div>
-
-        <div className="input-group">
-          <input 
-            type="password" 
-            className="input-field"
-            value={inputPw} 
-            placeholder="비밀번호 (1234)"
-            onChange={(e) => setInputPw(e.target.value)} 
-          />
-        </div>
-
-        <button 
-          className="login-button"
-          onClick={handleLogin}
-        >
-          로그인 하기
-        </button>
+      <div className="input-group">
+        <input 
+          type="text" 
+          className="input-field"
+          value={inputId} 
+          placeholder="아이디 (admin)"
+          onChange={(e) => setInputId(e.target.value)}
+        />
       </div>
+
+      <div className="input-group">
+        <input 
+          type="password" 
+          className="input-field"
+          value={inputPw} 
+          placeholder="비밀번호 (1234)"
+          onChange={(e) => setInputPw(e.target.value)} 
+        />
+      </div>
+
+      <button className="login-button" onClick={handleLogin}>
+        로그인 하기
+      </button>
     </div>
   );
 }

@@ -1,28 +1,41 @@
 // src/App.jsx
 import React, { useState } from 'react';
 import Login from './Login';
+import './App.css'; // 웹사이트 전체 스타일(헤더, 푸터 등)
 
 function App() {
-  // 대장이 기억하는 상태: 로그인 했나요? (처음엔 false/아니요)
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  // 1. 만약 로그인이 되어 있다면 -> 환영 메시지를 보여줘!
-  if (isLoggedIn) {
-    return (
-      <div style={{ textAlign: 'center', marginTop: '50px' }}>
-        <h1>🎉 환영합니다!</h1>
-        <p>로그인에 성공하셨군요.</p>
-        {/* 로그아웃 버튼: 누르면 다시 상태를 false로 바꿈 */}
-        <button onClick={() => setIsLoggedIn(false)}>로그아웃</button>
-      </div>
-    );
-  }
-
-  // 2. 로그인이 안 되어 있다면 -> 로그인 페이지를 보여줘!
-  // 핵심: Login 컴포넌트에게 "성공하면 이 함수를 실행해!"라고 도구(props)를 쥐여줍니다.
   return (
-    <div>
-      <Login onLoginSuccess={() => setIsLoggedIn(true)} />
+    <div className="web-container">
+      {/* 1. 웹사이트 헤더 (상단 메뉴바) */}
+      <header className="web-header">
+        <div className="logo">My Website</div>
+        <nav className="nav-menu">
+          <span>홈</span>
+          <span>소개</span>
+          <span>게시판</span>
+        </nav>
+      </header>
+
+      {/* 2. 본문 영역 (여기에 로그인 창이나 콘텐츠가 들어감) */}
+      <main className="web-main">
+        {isLoggedIn ? (
+          <div style={{ textAlign: 'center', padding: '50px' }}>
+            <h1>🎉 환영합니다!</h1>
+            <p>이제 웹사이트의 모든 기능을 이용할 수 있습니다.</p>
+            <button onClick={() => setIsLoggedIn(false)}>로그아웃</button>
+          </div>
+        ) : (
+          /* 로그인 컴포넌트를 보여줍니다 */
+          <Login onLoginSuccess={() => setIsLoggedIn(true)} />
+        )}
+      </main>
+
+      {/* 3. 웹사이트 푸터 (하단 정보) */}
+      <footer className="web-footer">
+        <p>Copyright © 2024 My Website. All rights reserved.</p>
+      </footer>
     </div>
   );
 }
